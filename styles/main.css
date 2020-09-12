@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @font-face {
-  font-family: 'icomoon';
+  font-family: "icomoon";
   src: url("../fonts/icomoon/icomoon.eot?srf3rx");
   src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
   font-weight: normal;
@@ -10,7 +10,7 @@ html {
   background: #fff;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 18px;
   font-weight: 300;
   line-height: 1.8;
@@ -524,7 +524,7 @@ figure figcaption {
   color: #999999;
 }
 #fh5co-offcanvas {
-  background: #fff;
+  background: #eee;
   position: fixed;
   top: 0;
   left: 0;
@@ -677,7 +677,7 @@ figure figcaption {
 }
 .fh5co-nav-toggle i::before,
 .fh5co-nav-toggle i::after {
-  content: '';
+  content: "";
   width: 25px;
   height: 3px;
   background: #535659;
@@ -783,7 +783,7 @@ figure figcaption {
   font-size: 24px;
 }
 .next-post .next {
-  color: #0C1E29;
+  color: #0c1e29;
   margin-bottom: 16px;
 }
 .tag-title {
@@ -822,7 +822,7 @@ figure figcaption {
   padding: 12px 0;
   text-decoration: none;
   border: none;
-  color: #0C1E29;
+  color: #0c1e29;
   font-size: 18px;
   font-weight: bold;
 }
@@ -849,7 +849,7 @@ figure figcaption {
 }
 .fh5co-article-title a {
   text-decoration: none;
-  color: #0C1E29;
+  color: #0c1e29;
   line-height: 1.5em;
 }
 .fh5co-article-title a:hover {
@@ -877,7 +877,7 @@ figure figcaption {
   background: linear-gradient(-150deg, transparent 1.5em, #ffffff 0);
 }
 .post-content > blockquote::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -908,7 +908,7 @@ figure figcaption {
   font-size: 1.3em;
 }
 .back-to-top a {
-  color: #98A9F9;
+  color: #98a9f9;
 }
 .back-to-top a:hover {
   opacity: 0.6;
@@ -928,7 +928,7 @@ figure figcaption {
 }
 .post-toc ul li a {
   text-decoration: none;
-  color: #98A9F9;
+  color: #98a9f9;
   font-weight: bolder;
 }
 .post-toc ul li a:hover {
