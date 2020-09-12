@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://lzh.github.io</id>
+    <title>李增华博客</title>
+    <updated>2020-09-12T02:49:01.096Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://lzh.github.io"/>
+    <link rel="self" href="https://lzh.github.io/atom.xml"/>
+    <subtitle>向昨天要经验，向今天要结果，向明天要动力</subtitle>
+    <logo>https://lzh.github.io/images/avatar.png</logo>
+    <icon>https://lzh.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, 李增华博客</rights>
+    <entry>
+        <title type="html"><![CDATA[小游戏SDK各宿主平台测试指引]]></title>
+        <id>https://lzh.github.io/post/xiao-you-xi-sdk-ge-su-zhu-ping-tai-ce-shi-zhi-yin/</id>
+        <link href="https://lzh.github.io/post/xiao-you-xi-sdk-ge-su-zhu-ping-tai-ce-shi-zhi-yin/">
+        </link>
+        <updated>2020-09-11T09:44:56.000Z</updated>
+    </entry>
+</feed>
