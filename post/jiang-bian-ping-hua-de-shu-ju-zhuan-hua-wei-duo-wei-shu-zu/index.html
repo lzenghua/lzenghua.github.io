@@ -182,7 +182,7 @@
                 <div class="row">
                     <div class="col-md-12 animate-box post-content">
                         <p> <h2 id="一-扁平数据">一、扁平数据</h2>
-<pre><code>const data = {
+<pre><code class="language-javascript">const data = {
     parent:[
         {
             name: &quot;文件1&quot;,
@@ -245,7 +245,7 @@
 }
 </code></pre>
 <h2 id="二-转为多维数组">二、转为多维数组</h2>
-<pre><code>//1. 将所有的数据混合在一起
+<pre><code class="language-js">//1. 将所有的数据混合在一起
 let allData = [...data.parent, ...data.child];
 //2. 生成一个映射表（将id抽取出来，以对象的键值对形式展示）
 //{1:{name: &quot;文件夹1&quot;, pid: 0, id: 1}}
