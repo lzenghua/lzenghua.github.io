@@ -157,41 +157,114 @@
         <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
             <figure class="animate-box">
                 
-                    <img src="https://lzenghua.github.io/post-images/ai-dao-ri-zheng-zhan-bian-hui-css-shi-xian.jpg" alt="哀悼日整站变灰css实现" class="img-responsive">
+                    <img src="https://lzenghua.github.io/post-images/jiang-bian-ping-hua-de-shu-ju-zhuan-hua-wei-duo-wei-shu-zu.png" alt="将扁平化的数据转化为多维数组" class="img-responsive">
                 
             </figure>
             <span class="fh5co-meta animate-box">
                 
                     <div class="tag-container">
                         
-                            <a href="https://lzenghua.github.io/tag/oe4PgmBdo/" class="tag">css, </a>
+                            <a href="https://lzenghua.github.io/tag/LH5kRXU-S/" class="tag">es6, </a>
+                        
+                            <a href="https://lzenghua.github.io/tag/OBQAc4W8K/" class="tag">算法, </a>
                         
                     </div>
                 
             </span>
-            <h2 class="fh5co-article-title animate-box">哀悼日整站变灰css实现</h2>
+            <h2 class="fh5co-article-title animate-box">将扁平化的数据转化为多维数组</h2>
             <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
-                <li>2020-09-12</li>
-                <li>58字</li>
-                <li>1 min read</li>
+                <li>2020-09-14</li>
+                <li>284字</li>
+                <li>2 min read</li>
             </ol>
 
             <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
                 <div class="row">
                     <div class="col-md-12 animate-box post-content">
-                        <p> <blockquote>
-<p>注意：以background引入的图片问题；以下代码能完美解决</p>
-</blockquote>
-<pre><code class="language-css">    html{ 
-        background: rgba(0,0,0,0.5);
-        filter: grayscale(100%);
-            -webkit-filter: grayscale(100%);
-            -moz-filter: grayscale(100%);
-            -ms-filter: grayscale(100%);
-            -o-filter: grayscale(100%);
-            filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
-            -webkit-filter: grayscale(1);
+                        <p> <h2 id="一-扁平数据">一、扁平数据</h2>
+<pre><code>const data = {
+    parent:[
+        {
+            name: &quot;文件1&quot;,
+            pid: 1,
+            id: 10001
+        },
+        {
+            name: &quot;文件2&quot;,
+            pid: 1,
+            id: 10002
+        },
+        {
+            name: &quot;文件2-1&quot;,
+            pid: 2,
+            id: 10003
+        },
+        {
+            name: &quot;文件2-2&quot;,
+            pid: 2,
+            id: 10004
+        },
+        {
+            name: &quot;文件1-1-1&quot;,
+            pid: 4,
+            id: 10005
+        },
+        {
+            name: &quot;文件2-1-1&quot;,
+            pid: 5,
+            id: 10006
+        }
+    ],
+    child:[
+        {
+            name: &quot;文件夹1&quot;,
+            pid: 0,
+            id: 1
+        },
+        {
+            name: &quot;文件夹2&quot;,
+            pid: 0,
+            id: 2
+        },
+        {
+            name: &quot;文件夹3&quot;,
+            pid: 0,
+            id: 3
+        },
+        {
+            name: &quot;文件夹1-1&quot;,
+            pid: 1,
+            id: 4
+        },
+        {
+            name: &quot;文件夹2-1&quot;,
+            pid: 2,
+            id: 5
+        }
+    ]
+}
+</code></pre>
+<h2 id="二-转为多维数组">二、转为多维数组</h2>
+<pre><code>//1. 将所有的数据混合在一起
+let allData = [...data.parent, ...data.child];
+//2. 生成一个映射表（将id抽取出来，以对象的键值对形式展示）
+//{1:{name: &quot;文件夹1&quot;, pid: 0, id: 1}}
+let treeMapList = allData.reduce((obj,cur)=&gt;{
+	obj[cur[&quot;id&quot;]] = cur;
+	return obj;
+},{});
+//3. 生成一个新的数组，根据pid在映射表中寻找并判断，相应的生成多层数组
+let result = allData.reduce((arr,cur)=&gt;{
+    let pid = cur.pid;
+    let parent = treeMapList[pid];
+    if(parent){
+        parent.children ? parent.children.push(cur) : parent.children = [cur];
+    }else if(pid === 0){ //这是根文件夹
+        arr.push(cur);
     }
+    return arr;
+},[]);
+console.log(result);
 </code></pre>
  </p>
                     </div>
@@ -202,9 +275,9 @@
                         
                             <div class="next-post">
                                 <div class="next">下一篇</div>
-                                <a href="https://lzenghua.github.io/post/android-an-zhuo-she-zhi-quan-tou-ming-webview/">
+                                <a href="https://lzenghua.github.io/post/axios-feng-zhuang-he-api-jie-kou-guan-li/">
                                     <h3 class="post-title">
-                                        Android安卓设置全透明webview
+                                        axios封装和api接口管理
                                     </h3>
                                 </a>
                             </div>
@@ -229,11 +302,24 @@
     <!-- 返回顶部 -->
     <div class="back-to-top">
     
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
+            <i class="fa fa-map"></i>
+        </a>
+        <br>
+    
     <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
 </div>
 
 <div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
-    
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E6%89%81%E5%B9%B3%E6%95%B0%E6%8D%AE">一、扁平数据</a></li>
+<li><a href="#%E4%BA%8C-%E8%BD%AC%E4%B8%BA%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84">二、转为多维数组</a></li>
+</ul>
+</li>
+</ul>
+
 </div>
 
 
