@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <title>李增华博客</title>
@@ -35,7 +35,7 @@
 
 </head>
 <body>
-<div id="fh5co-offcanvas">
+    <div id="fh5co-offcanvas">
     <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
         <span><i class="icon-cross3"></i> <span>Close</span></span>
     </a>
@@ -149,57 +149,135 @@
 </header>
 
 
-<div class="container-fluid">
+    <!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
+    <!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
 
-  <div class="col-lg-12 col-md-12 text-center tag-title">
-      <i class="fa fa-tag"></i> 标签: <h3>架构</h3>
-  </div>
-
-  <div class="row fh5co-post-entry">
-
+    <!-- 等gridea出自定义页面功能再优化一下 -->
     
-      <article class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-xxs-12 animate-box article-box" style="height: 25em;">
-        <figure class="img-box">
-          <a href="https://lzenghua.github.io/post/axios-feng-zhuang-he-api-jie-kou-guan-li/">
-            
-              <img data-original="https://lzenghua.github.io/post-images/axios-feng-zhuang-he-api-jie-kou-guan-li.png" alt="axios封装和api接口管理" class="img-responsive img-rounded lazy">
-            
-          </a>
-        </figure>
-        <span class="fh5co-meta">
-          
-            <div class="tag-container">
-              
-                <a href="https://lzenghua.github.io/tag/KadTZlqgI/" class="tag">vue, </a>
-              
-                <a href="https://lzenghua.github.io/tag/BDbtE0eXu/" class="tag">架构, </a>
-              
+        <div class="container-fluid">
+    <div class="row fh5co-post-entry single-entry">
+        <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+            <figure class="animate-box">
+                
+                    <img src="https://lzenghua.github.io/post-images/dui-xiang-zhuan-zhi-ding-de-shu-zu-dui-xiang-entires-map-reduce.png" alt="对象转指定的数组对象（entires-map-reduce）" class="img-responsive">
+                
+            </figure>
+            <span class="fh5co-meta animate-box">
+                
+                    <div class="tag-container">
+                        
+                            <a href="https://lzenghua.github.io/tag/LH5kRXU-S/" class="tag">es6, </a>
+                        
+                            <a href="https://lzenghua.github.io/tag/OBQAc4W8K/" class="tag">算法, </a>
+                        
+                    </div>
+                
+            </span>
+            <h2 class="fh5co-article-title animate-box">对象转指定的数组对象（entires-map-reduce）</h2>
+            <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
+                <li>2020-09-14</li>
+                <li>168字</li>
+                <li>1 min read</li>
+            </ol>
+
+            <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+                <div class="row">
+                    <div class="col-md-12 animate-box post-content">
+                        <p> <h2 id="1-需要实现的数据转换">1. 需要实现的数据转换</h2>
+<pre><code class="language-js">    { a: 1, b: 2, c: 3 }
+    =======&gt;
+    [ {text: 1, value: &quot;a&quot;}, {text: 2, value: &quot;b&quot;}, {text: 3, value: &quot;c&quot;} ]
+
+</code></pre>
+<pre><code>#### 1.1 实现
+```js
+const obj = { a: 1, b: 2, c: 3 };
+console.log(Object.entries(obj)); // [ [&quot;a&quot;, 1], [&quot;b&quot;, 2], [&quot;c&quot;, 3] ]
+const result = Object.entries(obj).map( item =&gt; {
+    return { text: item[1], vaule: item[0] }
+})
+console.log(result) // [ {text: 1, value: &quot;a&quot;}, {text: 2, value: &quot;b&quot;}, {text: 3, value: &quot;c&quot;} ]
+
+//Object.entries() 把对象转为集合
+```
+</code></pre>
+<h2 id="2-需要实现的数据转换">2. 需要实现的数据转换</h2>
+<pre><code>#### 2.1 实现
+```js
+const arr = [ {text: 1, value: &quot;a&quot;}, {text: 2, value: &quot;b&quot;}, {text: 3, value: &quot;c&quot;} ]
+
+const obj1 = arr.reduce((preValue, curValue) =&gt; {
+    preValue[curValue.value] = curValue.text
+    return preValue
+},{})
+
+console.log(obj1) // { a: 1, b: 2, c: 3 }
+```
+</code></pre>
+ </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 animate-box">
+                        
+                            <div class="next-post">
+                                <div class="next">下一篇</div>
+                                <a href="https://lzenghua.github.io/post/jiang-bian-ping-hua-de-shu-ju-zhuan-hua-wei-duo-wei-shu-zu/">
+                                    <h3 class="post-title">
+                                        将扁平化的数据转化为多维数组
+                                    </h3>
+                                </a>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+    <div class="col-md-12 animate-box">
+        
+    </div>
+</div>
+
             </div>
-          
-        </span>
-        <h3 class="fh5co-article-title">
-          <a href="https://lzenghua.github.io/post/axios-feng-zhuang-he-api-jie-kou-guan-li/">axios封装和api接口管理</a>
-        </h3>
-        <span class="fh5co-meta fh5co-date">2020-09-14</span>
-      </article>
-    
-    <div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
 
-  </div>
+        </article>
+    </div>
+</div>
 
-  <div class="pagination-box animate-box">
     
+
+    <!-- 返回顶部 -->
+    <div class="back-to-top">
     
-  </div>
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
+            <i class="fa fa-map"></i>
+        </a>
+        <br>
+    
+    <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
+</div>
+
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1-%E9%9C%80%E8%A6%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2">1. 需要实现的数据转换</a></li>
+<li><a href="#2-%E9%9C%80%E8%A6%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2">2. 需要实现的数据转换</a></li>
+</ul>
+</li>
+</ul>
+
 </div>
 
 
+    
 <footer id="fh5co-footer">
   <p></p>
 </footer>
 
 
-<!-- jQuery -->
+    <!-- jQuery -->
 <script src="https://lzenghua.github.io/media/scripts/jquery.min.js"></script>
 <!-- img lazy load -->
 <script src="https://lzenghua.github.io/media/scripts/jquery.lazyload.min.js"></script>
