@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lzenghua.github.io</id>
     <title>李增华博客</title>
-    <updated>2020-09-23T12:24:35.785Z</updated>
+    <updated>2020-09-23T12:27:10.963Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lzenghua.github.io"/>
     <link rel="self" href="https://lzenghua.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, 李增华博客</rights>
     <entry>
         <title type="html"><![CDATA[【兼容问题】解决ios设备上div加onclick事件点击无效的问题]]></title>
-        <id>https://lzenghua.github.io/post/jian-rong-wen-ti-jie-jue-ios-she-bei-shang-div-jia-onclick-shi-jian-dian-ji-wu-xiao-de-wen-ti/</id>
-        <link href="https://lzenghua.github.io/post/jian-rong-wen-ti-jie-jue-ios-she-bei-shang-div-jia-onclick-shi-jian-dian-ji-wu-xiao-de-wen-ti/">
+        <id>https://lzenghua.github.io/post/ios-jianrong_click/</id>
+        <link href="https://lzenghua.github.io/post/ios-jianrong_click/">
         </link>
         <updated>2020-09-23T12:22:43.000Z</updated>
     </entry>
