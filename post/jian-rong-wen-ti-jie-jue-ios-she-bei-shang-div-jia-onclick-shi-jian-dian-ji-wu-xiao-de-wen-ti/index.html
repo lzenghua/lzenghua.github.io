@@ -163,197 +163,33 @@
         <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
             <figure class="animate-box">
                 
-                    <img src="https://lzenghua.github.io/post-images/reduce-shi-yong.png" alt="reduce 使用" class="img-responsive">
+                    <img src="https://lzenghua.github.io/post-images/jian-rong-wen-ti-jie-jue-ios-she-bei-shang-div-jia-onclick-shi-jian-dian-ji-wu-xiao-de-wen-ti.jpg" alt="【兼容问题】解决ios设备上div加onclick事件点击无效的问题" class="img-responsive">
                 
             </figure>
             <span class="fh5co-meta animate-box">
                 
                     <div class="tag-container">
                         
-                            <a href="https://lzenghua.github.io/tag/JOsanDbSH/" class="tag">归纳, </a>
+                            <a href="https://lzenghua.github.io/tag/s8moA1Vin/" class="tag">兼容, </a>
                         
-                            <a href="https://lzenghua.github.io/tag/LH5kRXU-S/" class="tag">es6, </a>
-                        
-                            <a href="https://lzenghua.github.io/tag/OBQAc4W8K/" class="tag">算法, </a>
+                            <a href="https://lzenghua.github.io/tag/u_z3iiHFM/" class="tag">SDK, </a>
                         
                     </div>
                 
             </span>
-            <h2 class="fh5co-article-title animate-box">reduce 使用</h2>
+            <h2 class="fh5co-article-title animate-box">【兼容问题】解决ios设备上div加onclick事件点击无效的问题</h2>
             <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
-                <li>2020-09-14</li>
-                <li>766字</li>
-                <li>4 min read</li>
+                <li>2020-09-23</li>
+                <li>14字</li>
+                <li>1 min read</li>
             </ol>
 
             <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
                 <div class="row">
                     <div class="col-md-12 animate-box post-content">
-                        <p> <h2 id="1语法">1.语法</h2>
-<pre><code class="language-js">    arr.reduce(callback,[initialValue]);
-    // reduce 为数组中的每个元素依次执行回调函数
-    // callback: 有四个参数  (previousValue, currentValue, index, array)
-    // 1.1 previousValue: 上一次调用回调返回的值，或者是初始值
-    // 1.2 currentValue: 数组中当前被处理的元素
-    // 1.3 index: 当前元素在数组中的索引
-    // 1.4 array: 调用 reduce 的数组,这里是arr
-    // initialValue: 作为第一次调用 callback 的第一个参数（初始值）
+                        <p> <h2 id="给div添加下面属性即可解决">给div添加下面属性即可解决：</h2>
+<pre><code class="language-css">cursor:pointer;
 </code></pre>
-<h2 id="2关于-initialvalue-参数">2.关于 initialValue 参数</h2>
-<ul>
-<li>例子1：不设置 initialValue 参数情况</li>
-</ul>
-<pre><code class="language-js">    var arr = [1,2,3,4];
-    var sum = arr.reduce(function(prev, cur, index, arr){
-        console.log(prev, cur, index);
-        return prev + cur;
-    })
-    console.log(arr, sum);
-</code></pre>
-<blockquote>
-<p>打印结果<br>
-1 2 1<br>
-3 3 2<br>
-6 4 3<br>
-[1,2,3,4] 10</p>
-</blockquote>
-<p>以上例子中没有设置 初始值，index 是从 1 开始的， 第一次的 prev 值是数组的第一个值，数组长度是4，但是 reduce 函数只循环了 3 次。</p>
-<ul>
-<li>例子2 设置了 initialValue 参数</li>
-</ul>
-<pre><code class="language-js">var arr = [1,2,3,4];
-var sum = arr.reduce(function(prev, cur, index, arr){
-    console.log(prev, cur, index);
-    return prev + cur;
-},0); //注意这里设置了初始值
-console.log(arr, sum);
-</code></pre>
-<blockquote>
-<p>打印结果<br>
-0 1 0<br>
-1 2 1<br>
-3 3 2<br>
-6 4 3<br>
-[1,2,3,4] 10</p>
-</blockquote>
-<p>以上例子中设置了 初始值，index 是从 0 开始， 第一次的 prev 值是设置的初始值 0，数组长度4， reduce函数循环了 4 次</p>
-<ul>
-<li>结论：如果没有提供 initialValue，reduce 会从索引 1 的地方开始执行 callback 方法， 跳过第一个索引。如果提供 initialValue，从索引 0 开始</li>
-</ul>
-<h2 id="3-如果数组为空">3. 如果数组为空</h2>
-<ul>
-<li>
-<p>没有给定初始值</p>
-<pre><code class="language-js">var  arr = [];
-var sum = arr.reduce(function(prev, cur, index, arr) {
-    console.log(prev, cur, index);
-    return prev + cur;
-})
-//报错，&quot;TypeError: Reduce of empty array with no initial value&quot;
-
-</code></pre>
-</li>
-<li>
-<p>给定初始值</p>
-<pre><code class="language-js">var  arr = [];
-var sum = arr.reduce(function(prev, cur, index, arr) {
-    console.log(prev, cur, index);
-    return prev + cur;
-}，0)
-console.log(arr, sum); // [] 0
-</code></pre>
-<ul>
-<li>一般来说我们提供初始值通常更安全</li>
-</ul>
-</li>
-</ul>
-<h2 id="4-简单用法">4. 简单用法</h2>
-<ul>
-<li>数组求和，求乘积<pre><code class="language-js">let arr = [1, 2, 3, 4];
-let sum = arr.reduce((x,y)=&gt;x+y);
-let mu1 = arr.reduce((x,y)=&gt;x*y);
-console.log(sum); // 求和 10
-cosole.log(mu1); // 求乘积 24
-</code></pre>
-</li>
-</ul>
-<h2 id="5-高级用法">5. 高级用法</h2>
-<ul>
-<li>
-<p>计算数组中每个元素出现的次数</p>
-<pre><code class="language-js">let names = ['zhangsan', 'lisi', 'wangwu', 'zhaoliu', 'zhangsan'];
-let nameNum = names.reduce((prev,cur) =&gt; {
-    if(cur in prev){
-        prev[cur] ++;
-    }else{
-        prev[cur] = 1;
-    }
-    return prev;
-},{});
-console.log(nameNum); // {zhangsan: 2, lisi: 1, wangwu: 1, zhaoliu: 1}
-
-</code></pre>
-</li>
-<li>
-<p>数组去重</p>
-<pre><code class="language-js">let arr = [1, 2, 3, 4, 4, 1];
-let newArr = arr.reduce((prev,cur)=&gt;{
-    if(!prev.includes(cur)){
-        return prev.concat(cur);
-    }else{
-        return prev;
-    }
-},[]);
-console.log(newArr); // [1,2,3,4]
-</code></pre>
-</li>
-<li>
-<p>将二维数组转化为一维</p>
-<pre><code class="language-js">let arr = [[0,1], [2,3], [4,5]];
-let newArr = arr.reduce((prev,cur)=&gt;{
-    return prev.concat(cur);
-},[]);
-console.log(newArr); // [0,1,2,3,4,5]
-
-</code></pre>
-</li>
-<li>
-<p>将多维数组转化为一维</p>
-<pre><code class="language-js">let arr = [[0,1], [2,3], [4, [5,6,7]]];
-/*const newArr = function(arr){
-return arr.reduce((pre,cur)=&gt;pre.concat(Array.isArray(cur)?newArr(cur):cur),[])
-}*/
-const newArr = (arr) =&gt; arr.reduce((prev,cur) =&gt; prev.concat(Array.isArray(cur) ? newArr(cur) : cur),[]);
-console.log(newArr(arr)); //[0,1,2,3,4,5,6,7]
-</code></pre>
-</li>
-<li>
-<p>对象里的属性求和</p>
-<pre><code class="language-js">let result = [
-    {
-        subject: 'math',
-        score: 10
-    },
-    {
-        subject: 'chinese',
-        score: 20
-    },
-    {
-        subject: 'english',
-        score: 30
-    }
-];
-
-let sum = result.reduce((prev,cur)=&gt;{
-    return cur.score + prev;
-},0);
-console.log(sum); // 60
-
-</code></pre>
-</li>
-</ul>
-<h2 id="参考">参考</h2>
-<p>https://www.jianshu.com/p/e375ba1cfc47</p>
  </p>
                     </div>
                 </div>
@@ -363,9 +199,9 @@ console.log(sum); // 60
                         
                             <div class="next-post">
                                 <div class="next">下一篇</div>
-                                <a href="https://lzenghua.github.io/post/dui-xiang-zhuan-zhi-ding-de-shu-zu-dui-xiang-entires-map-reduce/">
+                                <a href="https://lzenghua.github.io/post/kua-yu-tong-xun-zhi-postmessage-shi-yong/">
                                     <h3 class="post-title">
-                                        对象转指定的数组对象（entires-map-reduce）
+                                        跨域通讯之postMessage使用
                                     </h3>
                                 </a>
                             </div>
@@ -402,12 +238,7 @@ console.log(sum); // 60
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#1%E8%AF%AD%E6%B3%95">1.语法</a></li>
-<li><a href="#2%E5%85%B3%E4%BA%8E-initialvalue-%E5%8F%82%E6%95%B0">2.关于 initialValue 参数</a></li>
-<li><a href="#3-%E5%A6%82%E6%9E%9C%E6%95%B0%E7%BB%84%E4%B8%BA%E7%A9%BA">3. 如果数组为空</a></li>
-<li><a href="#4-%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95">4. 简单用法</a></li>
-<li><a href="#5-%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95">5. 高级用法</a></li>
-<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+<li><a href="#%E7%BB%99div%E6%B7%BB%E5%8A%A0%E4%B8%8B%E9%9D%A2%E5%B1%9E%E6%80%A7%E5%8D%B3%E5%8F%AF%E8%A7%A3%E5%86%B3">给div添加下面属性即可解决：</a></li>
 </ul>
 </li>
 </ul>
