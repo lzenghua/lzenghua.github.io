@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <title>李增华博客</title>
@@ -35,7 +35,7 @@
 
 </head>
 <body>
-<div id="fh5co-offcanvas">
+    <div id="fh5co-offcanvas">
     <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
         <span><i class="icon-cross3"></i> <span>Close</span></span>
     </a>
@@ -151,84 +151,161 @@
 </header>
 
 
-<div class="container-fluid">
+    <!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
+    <!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
 
-  <div class="col-lg-12 col-md-12 text-center tag-title">
-      <i class="fa fa-tag"></i> 标签: <h3>vue</h3>
-  </div>
-
-  <div class="row fh5co-post-entry">
-
+    <!-- 等gridea出自定义页面功能再优化一下 -->
     
-      <article class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-xxs-12 animate-box article-box" style="height: 25em;">
-        <figure class="img-box">
-          <a href="https://lzenghua.github.io/post/kai-fa-zhong-chang-jian-wen-ti/">
-            
-              <img data-original="https://lzenghua.github.io/post-images/kai-fa-zhong-chang-jian-wen-ti.png" alt="开发中常见问题" class="img-responsive img-rounded lazy">
-            
-          </a>
-        </figure>
-        <span class="fh5co-meta">
-          
-            <div class="tag-container">
-              
-                <a href="https://lzenghua.github.io/tag/fEA9jfGay/" class="tag">JavaScript, </a>
-              
-                <a href="https://lzenghua.github.io/tag/JOsanDbSH/" class="tag">归纳, </a>
-              
-                <a href="https://lzenghua.github.io/tag/KadTZlqgI/" class="tag">vue, </a>
-              
+        <div class="container-fluid">
+    <div class="row fh5co-post-entry single-entry">
+        <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+            <figure class="animate-box">
+                
+                    <img src="https://lzenghua.github.io/post-images/kua-yu-tong-xun-zhi-postmessage-shi-yong.jpg" alt="跨域通讯之postMessage使用" class="img-responsive">
+                
+            </figure>
+            <span class="fh5co-meta animate-box">
+                
+                    <div class="tag-container">
+                        
+                            <a href="https://lzenghua.github.io/tag/fEA9jfGay/" class="tag">JavaScript, </a>
+                        
+                            <a href="https://lzenghua.github.io/tag/u_z3iiHFM/" class="tag">SDK, </a>
+                        
+                    </div>
+                
+            </span>
+            <h2 class="fh5co-article-title animate-box">跨域通讯之postMessage使用</h2>
+            <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
+                <li>2020-09-23</li>
+                <li>277字</li>
+                <li>2 min read</li>
+            </ol>
+
+            <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+                <div class="row">
+                    <div class="col-md-12 animate-box post-content">
+                        <p> <blockquote>
+<p>在sdk业务中，常常会出现如下场景：1. 需要与客户端进行信息的传递；2. 发行中嵌套iframe的跨域通信等等。</p>
+</blockquote>
+<h2 id="一-父窗口向子窗口通信">一、父窗口向子窗口通信</h2>
+<h4 id="1-父窗口发送信息">1. 父窗口发送信息</h4>
+<pre><code class="language-html">&lt;!-- 嵌套子窗口的iframe；需要定义一个id --&gt;
+&lt;iframe id=&quot;child_iframe&quot; src=&quot;./iframe.html&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+<pre><code class="language-js">var data = {
+    type: &quot;ddth5sdk&quot;,
+    action: &quot;xxx&quot;
+};
+document.getElementById('child_iframe').contentWindow.postMessage(JSON.stringify(data), &quot;*&quot;);
+</code></pre>
+<h4 id="2-子窗口监听信息">2. 子窗口监听信息</h4>
+<pre><code class="language-js">window.addEventListener('message', function (event) {
+    if (event.data &amp;&amp; typeof event.data === 'string') {
+        var data = JSON.parse(event.data);
+        if (data &amp;&amp; data.type === 'ddth5sdk') {
+            // 收到父窗口的信息，在此处理数据
+        }
+    }
+});
+</code></pre>
+<hr>
+<h2 id="二-子窗口向父窗口通信">二、子窗口向父窗口通信</h2>
+<h4 id="1-子窗口发送信息">1. 子窗口发送信息</h4>
+<pre><code class="language-js">var data = {
+    action: &quot;ddtsdk&quot;,
+    action_type: &quot;login&quot;
+};
+window.parent.postMessage(JSON.stringify(data), &quot;*&quot;);
+// 如果是向顶层发消息，则使用下面的代码
+window.top.postMessage(JSON.stringify(data), &quot;*&quot;);
+</code></pre>
+<h4 id="2-父窗口监听信息">2. 父窗口监听信息</h4>
+<pre><code class="language-js">window.addEventListener('message', function (event) {
+        if (event.data &amp;&amp; typeof event.data === 'string') {
+            var data = JSON.parse(event.data);
+            if (data &amp;&amp; data.action === 'ddtsdk' &amp;&amp; data.action_type == &quot;login&quot;) {
+                // 收到子窗口的信息，在此处理数据
+            }
+        }
+    });
+</code></pre>
+ </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 animate-box">
+                        
+                            <div class="next-post">
+                                <div class="next">下一篇</div>
+                                <a href="https://lzenghua.github.io/post/shou-ji-liu-lan-qi-tiao-zhuan-dao-shou-ji-qq-liao-tian/">
+                                    <h3 class="post-title">
+                                        手机浏览器跳转到手机QQ聊天
+                                    </h3>
+                                </a>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+    <div class="col-md-12 animate-box">
+        
+    </div>
+</div>
+
             </div>
-          
-        </span>
-        <h3 class="fh5co-article-title">
-          <a href="https://lzenghua.github.io/post/kai-fa-zhong-chang-jian-wen-ti/">开发中常见问题</a>
-        </h3>
-        <span class="fh5co-meta fh5co-date">2020-09-14</span>
-      </article>
-    
-      <article class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-xxs-12 animate-box article-box" style="height: 25em;">
-        <figure class="img-box">
-          <a href="https://lzenghua.github.io/post/axios-feng-zhuang-he-api-jie-kou-guan-li/">
-            
-              <img data-original="https://lzenghua.github.io/post-images/axios-feng-zhuang-he-api-jie-kou-guan-li.png" alt="axios封装和api接口管理" class="img-responsive img-rounded lazy">
-            
-          </a>
-        </figure>
-        <span class="fh5co-meta">
-          
-            <div class="tag-container">
-              
-                <a href="https://lzenghua.github.io/tag/KadTZlqgI/" class="tag">vue, </a>
-              
-                <a href="https://lzenghua.github.io/tag/BDbtE0eXu/" class="tag">架构, </a>
-              
-            </div>
-          
-        </span>
-        <h3 class="fh5co-article-title">
-          <a href="https://lzenghua.github.io/post/axios-feng-zhuang-he-api-jie-kou-guan-li/">axios封装和api接口管理</a>
-        </h3>
-        <span class="fh5co-meta fh5co-date">2020-09-14</span>
-      </article>
-    
-    <div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
 
-  </div>
+        </article>
+    </div>
+</div>
 
-  <div class="pagination-box animate-box">
     
+
+    <!-- 返回顶部 -->
+    <div class="back-to-top">
     
-  </div>
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
+            <i class="fa fa-map"></i>
+        </a>
+        <br>
+    
+    <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
+</div>
+
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E7%88%B6%E7%AA%97%E5%8F%A3%E5%90%91%E5%AD%90%E7%AA%97%E5%8F%A3%E9%80%9A%E4%BF%A1">一、父窗口向子窗口通信</a><br>
+*
+<ul>
+<li><a href="#1-%E7%88%B6%E7%AA%97%E5%8F%A3%E5%8F%91%E9%80%81%E4%BF%A1%E6%81%AF">1. 父窗口发送信息</a></li>
+<li><a href="#2-%E5%AD%90%E7%AA%97%E5%8F%A3%E7%9B%91%E5%90%AC%E4%BF%A1%E6%81%AF">2. 子窗口监听信息</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-%E5%AD%90%E7%AA%97%E5%8F%A3%E5%90%91%E7%88%B6%E7%AA%97%E5%8F%A3%E9%80%9A%E4%BF%A1">二、子窗口向父窗口通信</a><br>
+*
+<ul>
+<li><a href="#1-%E5%AD%90%E7%AA%97%E5%8F%A3%E5%8F%91%E9%80%81%E4%BF%A1%E6%81%AF">1. 子窗口发送信息</a></li>
+<li><a href="#2-%E7%88%B6%E7%AA%97%E5%8F%A3%E7%9B%91%E5%90%AC%E4%BF%A1%E6%81%AF">2. 父窗口监听信息</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
 </div>
 
 
+    
 <footer id="fh5co-footer">
   <p></p>
 </footer>
 
 
-<!-- jQuery -->
+    <!-- jQuery -->
 <script src="https://lzenghua.github.io/media/scripts/jquery.min.js"></script>
 <!-- img lazy load -->
 <script src="https://lzenghua.github.io/media/scripts/jquery.lazyload.min.js"></script>
