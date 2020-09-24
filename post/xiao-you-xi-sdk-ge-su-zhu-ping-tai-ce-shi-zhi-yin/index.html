@@ -180,7 +180,7 @@
             <h2 class="fh5co-article-title animate-box">小游戏SDK各宿主平台测试指引</h2>
             <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
                 <li>2020-09-11</li>
-                <li>588字</li>
+                <li>611字</li>
                 <li>3 min read</li>
             </ol>
 
@@ -197,6 +197,9 @@
 </ul>
 <h3 id="2-oppo">2. oppo</h3>
 <ul>
+<li>
+<p>node 版本要切换到 8.9.0</p>
+</li>
 <li>
 <p>egret 引擎发布 -&gt; oppo 小游戏（修改设置-&gt;最小平台版本号 1040）</p>
 </li>
@@ -216,7 +219,7 @@
 </ul>
 <pre><code>  # 打开 powershell
   # cd 到发布后小游戏的目录下
-  cd C:\Users\Administrator\Desktop\miniGameTest\test_vivogame
+  cd C:\Users\Administrator\Desktop\miniGameTest\test_oppogame
   # 执行打包命令
   quickgame pack
 </code></pre>
@@ -239,7 +242,7 @@ chrome-devtools://devtools/bundled/inspector.html?v8only=true&amp;ws={ip}:{PORT}
 <ul>
 <li>在 vivo 真机上安装<a href="https://minigame.vivo.com.cn/documents/#/download/debugger">小游戏调试器</a>;<a href="https://minigame.vivo.com.cn/documents/#/download/">小游戏引擎</a></li>
 <li>安装调试环境：<code>npm install -g @vivo-minigame/cli</code>; <code>mg -v</code> 查看是否安装成功</li>
-<li>egret 中发布为 vivo 小游戏 -&gt; <code>cd test_vivogame</code>目录 -&gt; 执行<code>npm run server</code>会生成一个二维码，然后使用小游戏调试器扫码安装游戏 apk 包；</li>
+<li>egret 中发布为 vivo 小游戏 -&gt; <code>cd test_vivogame</code>目录 -&gt; 执行<code>npm run server</code>会生成一个二维码，然后使用小游戏调试器扫码安装游戏 apk 包；然后系统会系统弹出调试页面</li>
 <li>打包 apk 包: <code>npm run build</code></li>
 <li>也可以在本地安装 apk 包，将 apk 包传到手机 sd 卡执行安装</li>
 <li>chrome 真机调试：</li>
