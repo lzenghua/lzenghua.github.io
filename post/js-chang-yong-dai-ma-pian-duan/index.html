@@ -163,32 +163,57 @@
         <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
             <figure class="animate-box">
                 
-                    <img src="https://lzenghua.github.io/post-images/shou-ji-liu-lan-qi-tiao-zhuan-dao-shou-ji-qq-liao-tian.png" alt="手机浏览器跳转到手机QQ聊天" class="img-responsive">
+                    <img src="https://lzenghua.github.io/post-images/js-chang-yong-dai-ma-pian-duan.jpg" alt="js 常用代码片段" class="img-responsive">
                 
             </figure>
             <span class="fh5co-meta animate-box">
                 
                     <div class="tag-container">
                         
-                            <a href="https://lzenghua.github.io/tag/JOsanDbSH/" class="tag">归纳, </a>
+                            <a href="https://lzenghua.github.io/tag/fEA9jfGay/" class="tag">JavaScript, </a>
                         
-                            <a href="https://lzenghua.github.io/tag/oe4PgmBdo/" class="tag">css, </a>
+                            <a href="https://lzenghua.github.io/tag/JOsanDbSH/" class="tag">归纳, </a>
                         
                     </div>
                 
             </span>
-            <h2 class="fh5co-article-title animate-box">手机浏览器跳转到手机QQ聊天</h2>
+            <h2 class="fh5co-article-title animate-box">js 常用代码片段</h2>
             <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
-                <li>2020-09-16</li>
-                <li>22字</li>
-                <li>1 min read</li>
+                <li>2020-09-23</li>
+                <li>233字</li>
+                <li>2 min read</li>
             </ol>
 
             <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
                 <div class="row">
                     <div class="col-md-12 animate-box post-content">
-                        <p> <h2 id="qq号">QQ号：</h2>
-<pre><code class="language-html">&lt;a href=&quot;mqqwpa://im/chat?chat_type=wpa&amp;uin=QQ号&quot;&gt;QQ号&lt;/a&gt;
+                        <p> <h2 id="滚动到顶部">滚动到顶部</h2>
+<pre><code class="language-js">const scrollToTop = _ =&gt; {
+    const c = document.documentElement.scrollTop || document.body.scrollTop; //获取到顶端的距离
+    if (c &gt; 0) {
+        window.requestAnimationFrame(scrollToTop);//滚动动画效果
+        window.scrollTo(0, c - c / 8);
+    }
+};
+</code></pre>
+<hr>
+<h2 id="取两个日期之间相差的天数">取两个日期之间相差的天数</h2>
+<pre><code class="language-js">const getDaysDiffBetweenDates = (beginDate, endDate) =&gt; ( endDate - beginDate) / (1000 * 3600 * 24);
+// getDaysDiffBetweenDates(new Date(&quot;2020-09-22&quot;), new Date(&quot;2020-10-01&quot;)) -&gt; 9
+</code></pre>
+<hr>
+<h2 id="统计数组中出现指定值的次数">统计数组中出现指定值的次数</h2>
+<p>用 reduce 查询数组，符合条件时+1</p>
+<pre><code class="language-js">const countOccurrences = (ary, value) =&gt; ary.reduce((res, val) =&gt; val === value ? ++res : res + 0, 0);
+//countOccurrences([2,4,11,'a','a','b',32], 'a') -&gt; 2
+</code></pre>
+<hr>
+<h2 id="取数组相同项不同项同理取不包含">取数组相同项(不同项同理取不包含)</h2>
+<p>选择一个数组创建  Set，然后使用  Array.filter()  过滤 Set 中包含的另一个数组值</p>
+<pre><code class="language-js">const intersection = (ary1, ary2) =&gt; { const s = new Set(ary2); return ary1.filter(item =&gt; s.has(item)) };
+//如果确定数组中不会有重复部分
+const intersection = (ary1, ary2) =&gt; ary1.filter(v =&gt; ary2.includes(v));
+// intersection([32,43,543], [32,12,55,43]) -&gt; [32,43]
 </code></pre>
  </p>
                     </div>
@@ -199,9 +224,9 @@
                         
                             <div class="next-post">
                                 <div class="next">下一篇</div>
-                                <a href="https://lzenghua.github.io/post/kai-fa-zhong-chang-jian-wen-ti/">
+                                <a href="https://lzenghua.github.io/post/ios-jianrong_click/">
                                     <h3 class="post-title">
-                                        开发中常见问题
+                                        【兼容问题】解决ios设备上div加onclick事件点击无效的问题
                                     </h3>
                                 </a>
                             </div>
@@ -238,7 +263,10 @@
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#qq%E5%8F%B7">QQ号：</a></li>
+<li><a href="#%E6%BB%9A%E5%8A%A8%E5%88%B0%E9%A1%B6%E9%83%A8">滚动到顶部</a></li>
+<li><a href="#%E5%8F%96%E4%B8%A4%E4%B8%AA%E6%97%A5%E6%9C%9F%E4%B9%8B%E9%97%B4%E7%9B%B8%E5%B7%AE%E7%9A%84%E5%A4%A9%E6%95%B0">取两个日期之间相差的天数</a></li>
+<li><a href="#%E7%BB%9F%E8%AE%A1%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%8C%87%E5%AE%9A%E5%80%BC%E7%9A%84%E6%AC%A1%E6%95%B0">统计数组中出现指定值的次数</a></li>
+<li><a href="#%E5%8F%96%E6%95%B0%E7%BB%84%E7%9B%B8%E5%90%8C%E9%A1%B9%E4%B8%8D%E5%90%8C%E9%A1%B9%E5%90%8C%E7%90%86%E5%8F%96%E4%B8%8D%E5%8C%85%E5%90%AB">取数组相同项(不同项同理取不包含)</a></li>
 </ul>
 </li>
 </ul>
