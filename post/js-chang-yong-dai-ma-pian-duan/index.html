@@ -234,7 +234,7 @@ elementContains(document.querySelector('head'), document.querySelecto('title'); 
 elementContains(document.querySelector('body'), document.querySelector('body')); // false
 </code></pre>
 <hr>
-<p>##　指定元素是否在视口可见</p>
+<h2 id="指定元素是否在视口可见">指定元素是否在视口可见</h2>
 <pre><code class="language-js">const elementIsVisibleInViewport = (el, partiallyVisible = false) =&gt; {
   const { top, left, bottom, right } = el.getBoundingClientRect();
   const { innerHeight, innerWidth } = window;
@@ -415,6 +415,7 @@ isBrowserTabFocused(); // true
 <li><a href="#%E7%BB%9F%E8%AE%A1%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%8C%87%E5%AE%9A%E5%80%BC%E7%9A%84%E6%AC%A1%E6%95%B0">统计数组中出现指定值的次数</a></li>
 <li><a href="#%E5%8F%96%E6%95%B0%E7%BB%84%E7%9B%B8%E5%90%8C%E9%A1%B9%E4%B8%8D%E5%90%8C%E9%A1%B9%E5%90%8C%E7%90%86%E5%8F%96%E4%B8%8D%E5%8C%85%E5%90%AB">取数组相同项(不同项同理取不包含)</a></li>
 <li><a href="#%E5%88%A4%E6%96%AD%E7%88%B6%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E5%AD%90%E5%85%83%E7%B4%A0">判断父元素是否包含子元素</a></li>
+<li><a href="#%E6%8C%87%E5%AE%9A%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6%E5%9C%A8%E8%A7%86%E5%8F%A3%E5%8F%AF%E8%A7%81">指定元素是否在视口可见</a></li>
 <li><a href="#%E8%8E%B7%E5%8F%96%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E5%86%85%E7%9A%84%E6%89%80%E6%9C%89%E5%9B%BE%E5%83%8F">获取一个元素内的所有图像</a></li>
 <li><a href="#%E5%88%86%E8%BE%A8%E8%AE%BE%E5%A4%87%E6%98%AF%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E8%BF%98%E6%98%AF%E6%A1%8C%E9%9D%A2%E8%AE%BE%E5%A4%87">分辨设备是移动设备还是桌面设备</a></li>
 <li><a href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8C%85%E5%90%AB%E5%BD%93%E5%89%8D-url-%E5%8F%82%E6%95%B0%E7%9A%84%E5%AF%B9%E8%B1%A1">创建一个包含当前 URL 参数的对象</a></li>
