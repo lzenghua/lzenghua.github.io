@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lzenghua.github.io</id>
     <title>李增华博客</title>
-    <updated>2021-01-04T09:52:12.053Z</updated>
+    <updated>2021-02-24T04:18:01.478Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lzenghua.github.io"/>
     <link rel="self" href="https://lzenghua.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://lzenghua.github.io/images/avatar.png</logo>
     <icon>https://lzenghua.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 李增华博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Jenkins + Gitlab实现自动化部署]]></title>
+        <id>https://lzenghua.github.io/post/jenkins-gitlab-shi-xian-zi-dong-hua-bu-shu/</id>
+        <link href="https://lzenghua.github.io/post/jenkins-gitlab-shi-xian-zi-dong-hua-bu-shu/">
+        </link>
+        <updated>2021-02-24T03:35:29.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[nestjs框架介绍]]></title>
         <id>https://lzenghua.github.io/post/nestjs-kuang-jia-jie-shao/</id>
@@ -72,12 +79,5 @@
         <link href="https://lzenghua.github.io/post/wai-lian-yong-liao-target_blank-tiao-zhuan-cuo-wu-wen-ti/">
         </link>
         <updated>2020-09-14T07:13:22.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[reduce 使用]]></title>
-        <id>https://lzenghua.github.io/post/reduce-shi-yong/</id>
-        <link href="https://lzenghua.github.io/post/reduce-shi-yong/">
-        </link>
-        <updated>2020-09-14T06:17:05.000Z</updated>
     </entry>
 </feed>

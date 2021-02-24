@@ -165,44 +165,122 @@
         <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
             <figure class="animate-box">
                 
-                    <img src="https://lzenghua.github.io/post-images/vmware_.jpg" alt="VMware虚拟机安装" class="img-responsive">
+                    <img src="https://lzenghua.github.io/post-images/jenkins-gitlab-shi-xian-zi-dong-hua-bu-shu.png" alt="Jenkins + Gitlab实现自动化部署" class="img-responsive">
                 
             </figure>
             <span class="fh5co-meta animate-box">
                 
+                    <div class="tag-container">
+                        
+                            <a href="https://lzenghua.github.io/tag/JOsanDbSH/" class="tag">归纳, </a>
+                        
+                            <a href="https://lzenghua.github.io/tag/BDbtE0eXu/" class="tag">架构, </a>
+                        
+                    </div>
+                
             </span>
-            <h2 class="fh5co-article-title animate-box">VMware虚拟机安装</h2>
+            <h2 class="fh5co-article-title animate-box">Jenkins + Gitlab实现自动化部署</h2>
             <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
-                <li>2020-11-18</li>
-                <li>171字</li>
-                <li>1 min read</li>
+                <li>2021-02-24</li>
+                <li>440字</li>
+                <li>2 min read</li>
             </ol>
 
             <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
                 <div class="row">
                     <div class="col-md-12 animate-box post-content">
-                        <p> <h2 id="下载安装">下载安装</h2>
-<p><a href="https://my.vmware.com/cn/group/vmware/downloads/details?downloadGroup=WKST-1600-WIN&amp;productId=1038&amp;rPId=51982&amp;download=true&amp;fileId=fcec2125fbaa98f51e17baa3fddb0be0&amp;uuId=559d7670-3026-4e1c-bcb8-f7eeee22219e">下载地址</a>  ,傻瓜式安装</p>
-<h2 id="新建虚拟机">新建虚拟机</h2>
-<p>新建新的虚拟机 -》 自定义（高级）-》 下一步 -》 稍后安装操作系统 -》 Linux，版本CentOS 6 64位 -》 位置选择软件盘自定义目录 -》 下一步 -》 内存：3072 -》 使用网络地址转换 -》 LSI Logic -》 SCSI -》 创建新虚拟硬盘 -》 磁盘：20.0 将虚拟磁盘拆分成多个文件 -》 下一步 -》 完成</p>
-<p><img src="https://lzenghua.github.io/post-images/1605667860160.png" alt="" loading="lazy"><br>
-<img src="https://lzenghua.github.io/post-images/1605667867348.png" alt="" loading="lazy"></p>
-<h2 id="下载centos-610-镜像">下载CentOS 6.10 镜像</h2>
-<p><a href="http://mirrors.zju.edu.cn/centos/6.10/isos/x86_64/">下载地址</a> 选择：CentOS-6.10-x86_64-bin-DVD1.iso</p>
-<h2 id="虚拟机网络配置">虚拟机网络配置</h2>
-<p><img src="https://lzenghua.github.io/post-images/1605668279215.png" alt="" loading="lazy"><br>
-<img src="https://lzenghua.github.io/post-images/1605668303148.png" alt="" loading="lazy"></p>
-<h2 id="虚拟机安装centos6系统的详细步骤">虚拟机安装CentOs6系统的详细步骤</h2>
-<p><a href="https://blog.csdn.net/y_blueblack/article/details/81488609">查看地址</a></p>
-<h2 id="远程登录管理工具-xshell">远程登录管理工具 XShell</h2>
+                        <p> <h2 id="系统环境前提条件">系统环境（前提条件）</h2>
+<blockquote>
+<p><code>Jenkins</code>和<code>Gitlab</code>需要处于同一网段；也就是说两者在内网要能互通！</p>
+</blockquote>
+<h4 id="-jenkins主机">- Jenkins主机</h4>
 <ul>
-<li><a href="https://pan.baidu.com/s/1tyuvwlQN6EPmLfCBy3xwag">链接</a>    提取码：cj5t</li>
-<li></li>
+<li>ip：192.168.17.97</li>
 </ul>
-<h2 id="参考文档">参考文档</h2>
+<h4 id="-gitlab主机">- Gitlab主机</h4>
 <ul>
-<li><a href="https://juejin.im/post/6844904173872365575#heading-4">地址1</a></li>
-<li></li>
+<li>ip:192.168.17.98</li>
+</ul>
+<h2 id="安装java环境">安装<code>Java</code>环境</h2>
+<ul>
+<li><a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">下载jdk</a></li>
+<li>Oracle登录
+<ul>
+<li>账号：24262991@qq.com</li>
+<li>密码：QQ密码，首字母大写</li>
+</ul>
+</li>
+<li>傻瓜式安装</li>
+</ul>
+<h2 id="安装jenkins">安装Jenkins</h2>
+<ul>
+<li><a href="https://www.jenkins.io/zh/download/">下载LTS版本</a></li>
+<li>傻瓜式安装、按提示解锁Jenkins<br>
+<img src="https://lzenghua.github.io/post-images/1614138323245.png" alt="" loading="lazy"><br>
+<img src="https://lzenghua.github.io/post-images/1614138339548.png" alt="" loading="lazy"></li>
+</ul>
+<h2 id="配置gitlab">配置Gitlab</h2>
+<h3 id="-获取公-私钥">- 获取公、私钥</h3>
+<pre><code> ssh-keygen -t rsa
+</code></pre>
+<p>会在目录/root/.ssh生成id_rsa私钥、id_rsa.pub公钥</p>
+<h3 id="-配置ssh公钥到gitlab上这样才能模拟开发上传代码到gitlab">- 配置ssh公钥到gitlab上，这样才能模拟开发上传代码到gitlab</h3>
+<figure data-type="image" tabindex="1"><img src="https://lzenghua.github.io/post-images/1614138549241.png" alt="" loading="lazy"></figure>
+<h3 id="-在gitlab上新建仓库并能使用ssh提交代码">- 在gitlab上新建仓库并能使用ssh提交代码</h3>
+<h2 id="配置jenkins">配置Jenkins</h2>
+<blockquote>
+<p>#打开jenkins页面<br>
+#添加插件：系统管理 - 插件管理<br>
+#需要添加的插件：Gitlab Hook、Build Authorization Token Root、Publish Over SSH、Gitlab Authentication、Gitlab、Git Parameter<br>
+#添加完插件重启jenkins，开始添加要部署代码的主机，注意一定是要能够ssh登陆的用户。<br>
+#添加主机：系统管理 - 系统设置 找到Publish over SSH</p>
+</blockquote>
+<ul>
+<li>Publish over SSH 的设置如下：<br>
+<img src="https://lzenghua.github.io/post-images/1614138809474.png" alt="Publish over SSH" loading="lazy"></li>
+</ul>
+<blockquote>
+<p>#添加完主机之后，新建一个项目，开始配置构建操作</p>
+</blockquote>
+<p><img src="https://lzenghua.github.io/post-images/1614138985121.png" alt="" loading="lazy"><br>
+<img src="https://lzenghua.github.io/post-images/1614138993799.png" alt="" loading="lazy"><br>
+<img src="https://lzenghua.github.io/post-images/1614139001468.png" alt="" loading="lazy"><br>
+<img src="https://lzenghua.github.io/post-images/1614139008276.png" alt="" loading="lazy"><br>
+<img src="https://lzenghua.github.io/post-images/1614139014421.png" alt="" loading="lazy"><br>
+<img src="https://lzenghua.github.io/post-images/1614139021524.png" alt="" loading="lazy"><br>
+<img src="https://lzenghua.github.io/post-images/1614139027139.png" alt="" loading="lazy"></p>
+<blockquote>
+<p>#配置gitlab，当有代码提交时，触发jenkins的部署操作</p>
+</blockquote>
+<p><img src="https://lzenghua.github.io/post-images/1614139223281.png" alt="" loading="lazy"><br>
+<img src="https://lzenghua.github.io/post-images/1614139232878.png" alt="" loading="lazy"></p>
+<ul>
+<li>web钩子设置的坑：</li>
+</ul>
+<blockquote>
+<p>#使用最新版本的gitlab做自动部署时，在增加web钩子那一步，<br>
+#点击test  push events时会报错：Url is blocked: Requests to the local network are not allowed<br>
+<img src="https://lzenghua.github.io/post-images/1614139755011.png" alt="" loading="lazy"></p>
+</blockquote>
+<ul>
+<li>解决方案：</li>
+</ul>
+<blockquote>
+<p>#这是因为新版的gitlab为了安全默认禁止了本地局域网地址调用web hook<br>
+#我们在设置里允许就行，具体步骤如下：<br>
+<img src="https://lzenghua.github.io/post-images/1614139787621.png" alt="" loading="lazy"><br>
+<img src="https://lzenghua.github.io/post-images/1614139799746.png" alt="" loading="lazy"></p>
+</blockquote>
+<ul>
+<li>继续操作<br>
+<img src="https://lzenghua.github.io/post-images/1614139240944.png" alt="" loading="lazy"><br>
+<img src="https://lzenghua.github.io/post-images/1614139247403.png" alt="" loading="lazy"></li>
+</ul>
+<h2 id="-测试提交代码是否会部署到远程主机">- 测试提交代码是否会部署到远程主机</h2>
+<ul>
+<li>提交代码</li>
+<li>查看Jenkins构建日志</li>
+<li>请求页面地址看是否更改了内容</li>
 </ul>
  </p>
                     </div>
@@ -213,9 +291,9 @@
                         
                             <div class="next-post">
                                 <div class="next">下一篇</div>
-                                <a href="https://lzenghua.github.io/post/node-readfilesync-du-qu-wen-jian-jie-xi-json-wen-jian-bao-cuo/">
+                                <a href="https://lzenghua.github.io/post/nestjs-kuang-jia-jie-shao/">
                                     <h3 class="post-title">
-                                        【node】readFileSync读取文件解析json文件报错
+                                        nestjs框架介绍
                                     </h3>
                                 </a>
                             </div>
@@ -252,13 +330,24 @@
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85">下载安装</a></li>
-<li><a href="#%E6%96%B0%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA">新建虚拟机</a></li>
-<li><a href="#%E4%B8%8B%E8%BD%BDcentos-610-%E9%95%9C%E5%83%8F">下载CentOS 6.10 镜像</a></li>
-<li><a href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE">虚拟机网络配置</a></li>
-<li><a href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85centos6%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4">虚拟机安装CentOs6系统的详细步骤</a></li>
-<li><a href="#%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-xshell">远程登录管理工具 XShell</a></li>
-<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3">参考文档</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6">系统环境（前提条件）</a><br>
+*
+<ul>
+<li><a href="#-jenkins%E4%B8%BB%E6%9C%BA">- Jenkins主机</a></li>
+<li><a href="#-gitlab%E4%B8%BB%E6%9C%BA">- Gitlab主机</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83">安装<code>Java</code>环境</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85jenkins">安装Jenkins</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AEgitlab">配置Gitlab</a>
+<ul>
+<li><a href="#-%E8%8E%B7%E5%8F%96%E5%85%AC-%E7%A7%81%E9%92%A5">- 获取公、私钥</a></li>
+<li><a href="#-%E9%85%8D%E7%BD%AEssh%E5%85%AC%E9%92%A5%E5%88%B0gitlab%E4%B8%8A%E8%BF%99%E6%A0%B7%E6%89%8D%E8%83%BD%E6%A8%A1%E6%8B%9F%E5%BC%80%E5%8F%91%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E5%88%B0gitlab">- 配置ssh公钥到gitlab上，这样才能模拟开发上传代码到gitlab</a></li>
+<li><a href="#-%E5%9C%A8gitlab%E4%B8%8A%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93%E5%B9%B6%E8%83%BD%E4%BD%BF%E7%94%A8ssh%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81">- 在gitlab上新建仓库并能使用ssh提交代码</a></li>
+</ul>
+</li>
+<li><a href="#%E9%85%8D%E7%BD%AEjenkins">配置Jenkins</a></li>
+<li><a href="#-%E6%B5%8B%E8%AF%95%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E6%98%AF%E5%90%A6%E4%BC%9A%E9%83%A8%E7%BD%B2%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA">- 测试提交代码是否会部署到远程主机</a></li>
 </ul>
 </li>
 </ul>
